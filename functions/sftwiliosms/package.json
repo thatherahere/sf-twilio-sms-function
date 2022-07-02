@@ -10,7 +10,6 @@
     "type": "git"
   },
   "engines": {
-    "@twilio": "^3.11.0",
     "node": "^16.9"
   },
   "scripts": {

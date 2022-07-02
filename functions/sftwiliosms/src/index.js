@@ -28,14 +28,11 @@
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, FROM_NUMBER } = process.env;
 
 export default async function (event, context, logger) {
-    logger.info(`Invoking Sftwiliosms with payload ${JSON.stringify(event.data || {})}`);
-
     // Download the helper library from https://www.twilio.com/docs/node/install
     // Find your Account SID and Auth Token at twilio.com/console
     // and set the environment variables. See http://twil.io/secure
     const client = TwilioService.init( TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN );
 
-    let response;
     client.messages 
       .create({
         body: event.data.smsBody,
@@ -43,11 +40,9 @@ export default async function (event, context, logger) {
         to: event.data.toNumber
       })
       .then(message =>{ 
-        response = message;
-        logger.info(`SMS sent successfully. Response: ${JSON.stringify(message || {})}`);
+        return { message };
     }).catch(error=>{
-      logger.info(`Failed to Send SMS. Error: ${JSON.stringify(error || {})}`);
+      logger.error(`Failed to Send SMS. Error: ${JSON.stringify(error || {})}`);
+      throw error;
     });
-
-    return response;
 }
