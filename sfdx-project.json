@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "SF-TWILIO-SMS-FUNCTION",
+  "name": "SFTWILIOSMSFUNCTION",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "55.0"
