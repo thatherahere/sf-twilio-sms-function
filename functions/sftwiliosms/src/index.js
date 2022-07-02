@@ -40,7 +40,7 @@ export default async function (event, context, logger) {
         to: event.data.toNumber
       })
       .then(message =>{ 
-        return { message };
+        return message;
     }).catch(error=>{
       logger.error(`Failed to Send SMS. Error: ${JSON.stringify(error || {})}`);
       throw error;
