@@ -1,0 +1,30 @@
+{
+  "name": "sftwiliosms-function",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "TODO",
+  "description": "TODO",
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git"
+  },
+  "engines": {
+    "@twilio": "^3.11.0",
+    "node": "^16.9"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js --config .eslintrc",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "twilio": "^3.78.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^6.8.0",
+    "mocha": "^8.4.0",
+    "sinon": "^10.0.0"
+  }
+}
