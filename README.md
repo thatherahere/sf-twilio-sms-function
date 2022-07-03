@@ -130,3 +130,11 @@ Follow these steps to test your function locally:
    ```sh
    sfdx force:apex:log:tail -c
    ```
+
+## Best Practice
+
+Release the Compute Environments: If you no longer need a compute environment, or you wish to disconnect a connected org, use the sf env delete command with the compute environment alias to remove the compute environment and let someone else use these resources for practice :) :
+
+```sh
+sf env delete -e stenv
+```
