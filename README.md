@@ -4,7 +4,7 @@
 
 This project is an integration between a Salesforce Org, Salesforce Functions and Twilio.
 
-The goal of the integration is to Send SMS from Salesforce to Contact's phone number using twilio.
+The goal of the integration is to Send SMS from Salesforce to given phone number using twilio.
 
 ## Installation
 
@@ -73,7 +73,7 @@ Follow these steps to deploy your function to a compute environment:
 
 Follow these steps to test your function locally:
 
-1. Create a `.env` file in the `functions/sftwiliosms` directory. Use the following template and make sure to replace values accordingly (see environment variables reference):
+1. Create a `.env` file in the `functions/sftwiliosms` directory. Use the following template and make sure to replace values accordingly:
 
    ```properties
    TWILIO_ACCOUNT_SID=XXXXXXXXXX
@@ -112,21 +112,21 @@ Follow these steps to test your function locally:
 
 ## Troubleshooting
 
-While creating the compute environment if you see below error, Check your sfdx-project.json at the root level. The name of the project must not have -. Please change it to underscore and it should work.
+1. While creating the compute environment if you see below error, Check your sfdx-project.json at the root level. The name of the project must not have -. Please change it to underscore and it should work.
 
-```
-Creating compute environment for org ID 00DXXXXXXXXXXXXXXX... failed
-Error: Request failed with status code 422
-```
+   ```
+   Creating compute environment for org ID 00DXXXXXXXXXXXXXXX... failed
+   Error: Request failed with status code 422
+   ```
 
-Monitor Salesforce Function's logs by running:
+1. Monitor Salesforce Function's logs by running:
 
-```sh
-sf env log tail -e stenv
-```
+   ```sh
+   sf env log tail -e stenv
+   ```
 
-Monitor Salesforce logs by running:
+1. Monitor Salesforce logs by running:
 
-```sh
-sfdx force:apex:log:tail -c
-```
+   ```sh
+   sfdx force:apex:log:tail -c
+   ```
