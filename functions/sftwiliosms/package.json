@@ -2,9 +2,9 @@
   "name": "sftwiliosms-function",
   "version": "0.0.1",
   "type": "module",
-  "author": "TODO",
-  "description": "TODO",
-  "license": "UNLICENSED",
+  "author": "Govind Thathera (thatherahere)",
+  "description": "A Salesforce Function that send SMS to given number using Twilio SMS Service.",
+  "license": "CC0-1.0",
   "main": "src/index.js",
   "repository": {
     "type": "git"

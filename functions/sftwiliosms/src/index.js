@@ -32,17 +32,23 @@ export default async function (event, context, logger) {
     // Find your Account SID and Auth Token at twilio.com/console
     // and set the environment variables. See http://twil.io/secure
     const client = TwilioService.init( TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN );
+    return await sendSMS( event, logger, client );
+}
 
-    client.messages 
-      .create({
+async function sendSMS( event, logger, client ){
+    let response = "";
+    await client.messages .create({
         body: event.data.smsBody,
         from: FROM_NUMBER,
         to: event.data.toNumber
-      })
-      .then(message =>{ 
-        return message;
-    }).catch(error=>{
-      logger.error(`Failed to Send SMS. Error: ${JSON.stringify(error || {})}`);
-      throw error;
+    }).then(message =>{   
+        response = JSON.stringify( message );
+    }).catch(err=>{
+        logger.error("Failed to send SMS: "+JSON.stringify( err ));
+        const newError = new Error("Failed to send SMS:", {
+            cause: err
+        });
+        throw newError; 
     });
+    return response;
 }
