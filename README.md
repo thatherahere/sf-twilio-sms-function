@@ -81,7 +81,7 @@ Follow these steps to test your function locally:
    FROM_NUMBER=XXXXXXXXXX
    ```
 
-1. To test a running function, send it a JSON payload. Pass the payload inline or create a payload.json file in your function directory with a verified number and SMS body as:
+1. Prepare the JSON payload. You can pass the payload inline or create a payload.json file in your function directory with a verified number and SMS body as:
 
    ```json
    {
@@ -97,7 +97,7 @@ Follow these steps to test your function locally:
    sf run function start
    ```
 
-1. Navigate to your project root directory and invoke the function:
+1. Navigate to your project root directory and invoke the function as:
    ```sh
    sf run function -l http://localhost:8080 -p '@functions/sftwiliosms/payload.json'
    ```
