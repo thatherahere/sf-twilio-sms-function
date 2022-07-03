@@ -63,6 +63,12 @@ Follow these steps to deploy your function to a compute environment:
    sf env var set FROM_NUMBER=XXXXXXXXXX -e stenv
    ```
 
+1. Open Developer Console and execute below code using Execute Anonymous Window to send SMS:
+   ```java
+   // Replace [VERIFIED_NUMBER] with non-Twilio phone number you wish to send SMS to.
+   SFTwilioFunctionDemo.sendSMS('[VERIFIED_NUMBER]', 'This sms was sent from twili using Salesforce Function.');
+   ```
+
 #### Run locally
 
 Follow these steps to test your function locally:
