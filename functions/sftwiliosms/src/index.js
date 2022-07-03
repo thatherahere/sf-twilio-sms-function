@@ -36,13 +36,13 @@ export default async function (event, context, logger) {
 }
 
 async function sendSMS( event, logger, client ){
-    let response = "";
+    let response = {};
     await client.messages .create({
         body: event.data.smsBody,
         from: FROM_NUMBER,
         to: event.data.toNumber
     }).then(message =>{   
-        response = JSON.stringify( message );
+      response = message;
     }).catch(err=>{
         logger.error("Failed to send SMS: "+JSON.stringify( err ));
         const newError = new Error("Failed to send SMS:", {
