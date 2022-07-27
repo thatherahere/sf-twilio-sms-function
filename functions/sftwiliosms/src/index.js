@@ -27,6 +27,25 @@
 
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, FROM_NUMBER } = process.env;
 
+// Polyfill for Error cause
+const OriginalError = global.Error;
+class Error extends OriginalError {
+    constructor(msg, options) {
+        super(msg);
+        if (options?.cause) {
+            this.cause = options.cause;
+        }
+    }
+
+    toString() {
+        let value = this.message;
+        if (this.cause) {
+            value += `\nCaused by: ${this.cause}`;
+        }
+        return value;
+    }
+}
+
 export default async function (event, context, logger) {
     // Download the helper library from https://www.twilio.com/docs/node/install
     // Find your Account SID and Auth Token at twilio.com/console
